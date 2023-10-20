@@ -1,0 +1,12 @@
+<label for="filtro">Filtro</label>
+<select
+  name="filtro"
+  id="status"
+  [(ngModel)]="filtro"
+  (change)="handleSelect()"
+>
+  <option value="all">Todos os Status</option>
+  <option value="toDo">To do</option>
+  <option value="inProgress">In progress</option>
+  <option value="done">Done</option>
+</select>

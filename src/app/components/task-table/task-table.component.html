@@ -1,0 +1,14 @@
+<h2>Tabela de Tarefas</h2>
+
+<table>
+  <tr>
+    <td>Título</td>
+    <td>Descrição</td>
+    <td>Data</td>
+  </tr>
+  <tr *ngFor="let task of taskTable">
+    <td>{{ task.title }}</td>
+    <td>{{ task.description }}</td>
+    <td>{{ task.date }}</td>
+  </tr>
+</table>
