@@ -1,4 +1,8 @@
+<app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
+<!--
 <app-task-form (addTask)="onAddTask($event)"></app-task-form>
+-->
+
 <app-task-list
   [tasks]="listTask"
   (handleTask)="handleTask($event)"
@@ -10,5 +14,8 @@
     (closeDetail)="closeDetail()"
   ></app-task-detail>
 </div>
+
+<app-kanban-chart [tasks]="listTask"></app-kanban-chart>
+
 <!--O segundo closeDetail poderia ser outro nome qualquer-->
 <app-task-table [taskTable]="taskTable"></app-task-table>

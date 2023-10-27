@@ -4,12 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'currencyFormat',
 })
 export class CurrencyFormatPipe implements PipeTransform {
-  transform(value: string, currencyCode: string = 'BRL'): unknown {
-    let formattedValue = Number(value).toLocaleString('pt-BR', {
+  transform(value: number, currencyCode: string = 'BRL'): unknown {
+    let formattedCurrency = value.toLocaleString('pt-BR', {
       style: 'currency',
       currency: currencyCode,
       minimumFractionDigits: 2,
     });
-    return formattedValue;
+    return formattedCurrency;
   }
 }

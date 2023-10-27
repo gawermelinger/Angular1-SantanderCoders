@@ -3,17 +3,20 @@
 export class Task {
   title: string;
   description: string;
+  price: number;
   date: Date;
   category: string;
 
   constructor(
     title: string = '',
     description: string = '',
+    price: number = 0,
     date: Date = new Date(),
     category = ''
   ) {
     this.title = title;
     this.description = description;
+    this.price = price;
     this.date = date;
     this.category = category;
   }

@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 1rem;
+  margin-top: 3rem;
+}
+.card-todo {
+  background-color: rgb(61, 103, 61);
+}
+.card-inprogress {
+  background-color: rgb(85, 85, 48);
+}
+.card-done {
+  background-color: rgb(118, 60, 60);
+}
+.div-task {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+}
+.task {
+  font-size: 2rem;
+  border: 0.1rem solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: aliceblue;
+}
+h3 {
+  text-align: center;
+  color: white;
+}

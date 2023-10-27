@@ -2,23 +2,18 @@
   <fieldset>
     <h4>Formulário de tarefas</h4>
 
-    <form (ngSubmit)="submitTask()" #form="ngForm">
+    <form [formGroup]="form" (ngSubmit)="submitTask()">
       <div>
         <label for="title">Título</label>
         <input
           class="input"
           id="title"
           type="text"
-          [(ngModel)]="newTask.title"
           name="title"
-          required
+          formControlName="title"
         />
-        <div
-          *ngIf="
-            !form.controls['title']?.valid && form.controls['title']?.touched
-          "
-        >
-          <p>Nome é obrigatório!</p>
+        <div *ngIf="form.get('title')?.hasError('required')">
+          <p>Título é obrigatório!</p>
         </div>
       </div>
       <div>
@@ -27,17 +22,10 @@
           class="input"
           id="description"
           type="text"
-          [(ngModel)]="newTask.description"
           name="description"
-          required
+          formControlName="description"
         />
-
-        <div
-          *ngIf="
-            !form.controls['description']?.valid &&
-            form.controls['description']?.touched
-          "
-        >
+        <div *ngIf="form.get('description')?.hasError('required')">
           <p>Descrição é obrigatória!</p>
         </div>
       </div>
@@ -48,30 +36,22 @@
           type="number"
           id="price"
           name="price"
-          [(ngModel)]="newTask.price"
-          required
+          formControlName="price"
         />
-        <div
-          *ngIf="
-            !form.controls['price']?.valid && form.controls['price']?.touched
-          "
-        >
+        <div *ngIf="form.get('price')?.hasError('required')">
           <p>Preço é obrigatório!</p>
         </div>
       </div>
-
       <div>
         <label for="date">Data de vencimento</label>
         <input
           class="input"
           id="date"
           type="date"
-          [(ngModel)]="newTask.date"
           name="date"
-          required
-          pattern="^\d{4}-\d{2}-\d{2}$"
+          formControlName="date"
         />
-        <div *ngIf="!form.controls['date']?.invalid">
+        <div *ngIf="form.get('date')?.hasError('required')">
           <p>Data é obrigatória!</p>
         </div>
       </div>
@@ -81,28 +61,20 @@
           class="input"
           name="category"
           id="category"
-          [(ngModel)]="newTask.category"
-          required
+          formControlName="category"
         >
           <option value="" disabled selected>Selecione</option>
           <option value="toDo">To do</option>
           <option value="inProgress">In progress</option>
           <option value="done">Done</option>
         </select>
-        <div
-          *ngIf="
-            !form.controls['category']?.valid &&
-            form.controls['category']?.touched
-          "
-        >
+        <div *ngIf="form.get('category')?.hasError('required')">
           <p>Categoria é obrigatória!</p>
         </div>
       </div>
-      <div>
+      <div class="container-btn">
         <button type="submit" [disabled]="!form.valid">Adicionar</button>
       </div>
     </form>
   </fieldset>
-  <!--assim disparo um evento de clique
-  <button type="button" (click)="submitTask()">Add</button>-->
 </div>
