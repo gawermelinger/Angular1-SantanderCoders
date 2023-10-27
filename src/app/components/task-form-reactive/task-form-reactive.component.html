@@ -72,6 +72,14 @@
           <p>Categoria é obrigatória!</p>
         </div>
       </div>
+      <div formArrayName="tags">
+        <button type="button" (click)="addTags()">Adicionar tag</button>
+
+        <div *ngFor="let tag of tags.controls; let i = index">
+          <label for="tags">Nome da Tag:</label>
+          <input class="input" id="tags" type="text" [formControlName]="i" />
+        </div>
+      </div>
       <div class="container-btn">
         <button type="submit" [disabled]="!form.valid">Adicionar</button>
       </div>

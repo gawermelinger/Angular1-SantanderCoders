@@ -6,6 +6,7 @@
   <p>Preço: {{ task.price | currencyFormat }}</p>
   <p>Data de Vencimento: {{ task.date | date : "dd/MM/yyyy" }}</p>
   <p>Status: {{ task.category }}</p>
+  <p>Tag: {{ task.tags }}</p>
   <div class="div-btn">
     <button (click)="close()">Fechar</button>
     <button (click)="handleEditTask(task)">Editar</button>

@@ -7,6 +7,7 @@ export class Task {
   date: Date;
   category: string;
   id: number;
+  tags: string[];
 
   constructor(
     title: string = '',
@@ -14,7 +15,8 @@ export class Task {
     price: number = 0,
     date: Date = new Date(),
     category = '',
-    id = 0
+    id = 0,
+    tags = []
   ) {
     this.title = title;
     this.description = description;
@@ -22,6 +24,7 @@ export class Task {
     this.date = date;
     this.category = category;
     this.id = id;
+    this.tags = tags;
   }
 }
 //title: string = '' --> se eu colocar só title:string, ele só vai aceitar se tiver um valor. Colocando o = '' aceita também caso seja vazio
