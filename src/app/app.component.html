@@ -1,4 +1,8 @@
-<app-task-form-reactive (addTask)="onAddTask($event)"></app-task-form-reactive>
+<app-task-form-reactive
+  (addTask)="onAddTask($event)"
+  (editTask)="editTask($event)"
+  [taskEdited]="taskEdited"
+></app-task-form-reactive>
 <!--
 <app-task-form (addTask)="onAddTask($event)"></app-task-form>
 -->
@@ -11,6 +15,7 @@
 <div *ngIf="selectedTask">
   <app-task-detail
     [task]="selectedTask"
+    (editTask)="setEditTask($event)"
     (closeDetail)="closeDetail()"
   ></app-task-detail>
 </div>

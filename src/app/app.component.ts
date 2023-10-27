@@ -22,14 +22,29 @@ export class AppComponent implements OnInit {
   //se eu não colocasse a opção de = '' na model, aqui eu teria que passar os mesmos parâmetros do constructor
   selectedTask: Task | null = null;
   taskTable: Task[] = [];
+  id = 0;
+  taskEdited: Task | null = null;
 
   ngOnInit(): void {
     //aqui dentro, posso fazer chamada de alguma API
   } //uso o onInit aqui, mas tem que lembrar de colocar o implements ali em cima!!
 
   onAddTask(task: Task) {
-    this.listTask.push(task);
+    this.listTask.push({ ...task, id: ++this.id });
     console.log(task);
+  }
+  setEditTask(task: Task | null) {
+    this.taskEdited = task;
+  }
+
+  editTask(task: Task) {
+    const index = this.listTask.findIndex((item) => item.id === task.id);
+    if (index === -1) {
+      alert('Tarefa não encontrada!');
+      return;
+    }
+    this.listTask.splice(index, 1, task);
+    this.taskEdited = null;
   }
 
   handleTask(task: Task) {
